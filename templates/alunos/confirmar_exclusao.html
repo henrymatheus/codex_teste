@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Confirmar exclusão{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h2>Excluir aluno</h2>
+  <p>Tem certeza que deseja excluir <strong>{{ aluno.nome }}</strong> ({{ aluno.matricula }})?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button class="btn btn-danger" type="submit">Sim, excluir</button>
+    <a class="btn btn-secondary" href="{% url 'lista_alunos' %}">Cancelar</a>
+  </form>
+</div>
+{% endblock %}
